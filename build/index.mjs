@@ -1,21 +1,3 @@
-"use strict";
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-  }
-  return to;
-};
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var __async = (__this, __arguments, generator) => {
   return new Promise((resolve, reject) => {
     var fulfilled = (value) => {
@@ -38,13 +20,7 @@ var __async = (__this, __arguments, generator) => {
 };
 
 // src/index.ts
-var src_exports = {};
-__export(src_exports, {
-  RequestStatus: () => RequestStatus,
-  useFetch: () => useFetch
-});
-module.exports = __toCommonJS(src_exports);
-var import_vue = require("vue");
+import { reactive, ref, onBeforeUnmount } from "vue";
 var RequestStatus = /* @__PURE__ */ ((RequestStatus2) => {
   RequestStatus2["INIT"] = "init";
   RequestStatus2["LOADING"] = "loading";
@@ -56,8 +32,8 @@ function useFetch({
   request,
   defaultData
 }) {
-  const interval = (0, import_vue.ref)(null);
-  const state = (0, import_vue.reactive)({
+  const interval = ref(null);
+  const state = reactive({
     data: defaultData ? defaultData : null,
     status: "init" /* INIT */,
     error: null
@@ -90,14 +66,13 @@ function useFetch({
       clearInterval(interval.value);
     }
   };
-  (0, import_vue.onBeforeUnmount)(() => {
+  onBeforeUnmount(() => {
     resetInterval();
   });
   return [state, useFetch2, resetInterval];
 }
-// Annotate the CommonJS export names for ESM import in node:
-0 && (module.exports = {
+export {
   RequestStatus,
   useFetch
-});
-//# sourceMappingURL=index.js.map
+};
+//# sourceMappingURL=index.mjs.map

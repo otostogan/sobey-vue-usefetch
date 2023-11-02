@@ -3,8 +3,14 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "./build/index.js",
+	"module": "./build/index.mjs",
+	"types": "./build/index.d.ts",
+	"files": [
+		"build"
+	],
 	"scripts": {
-		"prepublish": "rm -rf build && tsc"
+		"prepublish": "rm -rf build && tsup",
+		"build": "tsup"
 	},
 	"repository": {
 		"type": "git",
@@ -24,5 +30,9 @@
 	"homepage": "https://github.com/otostogan/sobey-vue-usefetch#readme",
 	"dependencies": {
 		"vue": "^3.3.7"
+	},
+	"devDependencies": {
+		"tsup": "^7.2.0",
+		"typescript": "^5.2.2"
 	}
 }
