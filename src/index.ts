@@ -14,7 +14,7 @@ export interface State<T> {
 	error: any | null;
 }
 
-type RequestFunction<T, A> = (args: A) => Promise<T>;
+export type RequestFunction<T, A> = (args: A) => Promise<T>;
 
 export interface IOptions<T, A = void> {
 	request: RequestFunction<T, A>;

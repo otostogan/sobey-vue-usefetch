@@ -2,10 +2,27 @@
 	"name": "@sobey/vue-usefetch",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "./build/index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"prepublish": "rm -rf build && tsc"
 	},
-	"author": "",
-	"license": "ISC"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/otostogan/sobey-vue-usefetch.git"
+	},
+	"keywords": [
+		"useFetch",
+		"vue",
+		"fetch",
+		"hook"
+	],
+	"author": "otostogan, sobeyy",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/otostogan/sobey-vue-usefetch/issues"
+	},
+	"homepage": "https://github.com/otostogan/sobey-vue-usefetch#readme",
+	"dependencies": {
+		"vue": "^3.3.7"
+	}
 }
