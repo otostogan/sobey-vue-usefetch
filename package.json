@@ -1,6 +1,6 @@
 {
 	"name": "sobey-vue-usefetch",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "",
 	"main": "./build/index.js",
 	"module": "./build/index.mjs",
@@ -28,7 +28,7 @@
 		"url": "https://github.com/otostogan/sobey-vue-usefetch/issues"
 	},
 	"homepage": "https://github.com/otostogan/sobey-vue-usefetch#readme",
-	"dependencies": {
+	"peerDependencies": {
 		"vue": "^3.3.7"
 	},
 	"devDependencies": {
