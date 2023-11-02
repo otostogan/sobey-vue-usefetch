@@ -1,5 +1,5 @@
 {
-	"name": "@sobey/vue-usefetch",
+	"name": "sobey-vue-usefetch",
 	"version": "1.0.0",
 	"description": "",
 	"main": "./build/index.js",
