@@ -13,7 +13,7 @@ A powerful fetch utility for Vue.js applications that simplifies data fetching a
 ## Installation
 
 ```
-npm install awesome-fetch-library
+npm install sobey-vue-usefetch
 ```
 
 # Usage
