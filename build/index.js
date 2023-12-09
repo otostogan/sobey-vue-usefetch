@@ -68,9 +68,10 @@ function useFetch({
       return request(args).then((response) => {
         state.data = response;
         state.status = "fulfilled" /* FULFILLED */;
+        state.error = null;
         return response;
       }).catch((error) => {
-        console.log(error);
+        console.error(error);
         state.error = error;
         state.status = "rejected" /* REJECTED */;
         throw error;
@@ -88,12 +89,13 @@ function useFetch({
   const resetInterval = () => {
     if (interval.value) {
       clearInterval(interval.value);
+      interval.value = null;
     }
   };
   (0, import_vue.onBeforeUnmount)(() => {
     resetInterval();
   });
-  return [state, useFetch2, resetInterval];
+  return [state, useFetch2, resetInterval, interval.value];
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {

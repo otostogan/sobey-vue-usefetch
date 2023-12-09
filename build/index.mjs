@@ -44,9 +44,10 @@ function useFetch({
       return request(args).then((response) => {
         state.data = response;
         state.status = "fulfilled" /* FULFILLED */;
+        state.error = null;
         return response;
       }).catch((error) => {
-        console.log(error);
+        console.error(error);
         state.error = error;
         state.status = "rejected" /* REJECTED */;
         throw error;
@@ -64,12 +65,13 @@ function useFetch({
   const resetInterval = () => {
     if (interval.value) {
       clearInterval(interval.value);
+      interval.value = null;
     }
   };
   onBeforeUnmount(() => {
     resetInterval();
   });
-  return [state, useFetch2, resetInterval];
+  return [state, useFetch2, resetInterval, interval.value];
 }
 export {
   RequestStatus,

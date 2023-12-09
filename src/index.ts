@@ -27,7 +27,8 @@ export function useFetch<T, A = void>({
 }: IOptions<T, A>): [
 	State<T>,
 	(args?: A, refetch?: number) => Promise<T>,
-	() => void
+	() => void,
+	number | null
 ] {
 	const interval = ref<number | null>(null);
 
@@ -44,10 +45,11 @@ export function useFetch<T, A = void>({
 				.then((response) => {
 					state.data = response as unknown as UnwrapRef<T>;
 					state.status = RequestStatus.FULFILLED;
+					state.error = null;
 					return response;
 				})
 				.catch((error) => {
-					console.log(error);
+					console.error(error);
 					state.error = error;
 					state.status = RequestStatus.REJECTED;
 					throw error;
@@ -67,6 +69,7 @@ export function useFetch<T, A = void>({
 	const resetInterval = () => {
 		if (interval.value) {
 			clearInterval(interval.value);
+			interval.value = null;
 		}
 	};
 
@@ -74,5 +77,5 @@ export function useFetch<T, A = void>({
 		resetInterval();
 	});
 
-	return [state as State<T>, useFetch, resetInterval];
+	return [state as State<T>, useFetch, resetInterval, interval.value];
 }

@@ -17,7 +17,8 @@ interface IOptions<T, A = void> {
 declare function useFetch<T, A = void>({ request, defaultData, }: IOptions<T, A>): [
     State<T>,
     (args?: A, refetch?: number) => Promise<T>,
-    () => void
+    () => void,
+    number | null
 ];
 
 export { IOptions, RequestFunction, RequestStatus, State, useFetch };
