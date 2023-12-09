@@ -33,7 +33,7 @@ export function useFetch<T, A = void>({
 	const interval = ref<number | null>(null);
 
 	const state = reactive<State<T>>({
-		data: defaultData ? defaultData : null,
+		data: defaultData !== undefined ? defaultData : null,
 		status: RequestStatus.INIT,
 		error: null,
 	});
