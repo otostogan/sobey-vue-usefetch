@@ -34,7 +34,7 @@ function useFetch({
 }) {
   const interval = ref(null);
   const state = reactive({
-    data: defaultData ? defaultData : null,
+    data: defaultData !== void 0 ? defaultData : null,
     status: "init" /* INIT */,
     error: null
   });

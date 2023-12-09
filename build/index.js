@@ -58,7 +58,7 @@ function useFetch({
 }) {
   const interval = (0, import_vue.ref)(null);
   const state = (0, import_vue.reactive)({
-    data: defaultData ? defaultData : null,
+    data: defaultData !== void 0 ? defaultData : null,
     status: "init" /* INIT */,
     error: null
   });
