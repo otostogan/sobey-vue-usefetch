@@ -1,3 +1,5 @@
+import { Ref } from 'vue';
+
 declare enum RequestStatus {
     INIT = "init",
     LOADING = "loading",
@@ -18,7 +20,7 @@ declare function useFetch<T, A = void>({ request, defaultData, }: IOptions<T, A>
     State<T>,
     (args?: A, refetch?: number) => Promise<T>,
     () => void,
-    number | null
+    Ref<number | null>
 ];
 
 export { IOptions, RequestFunction, RequestStatus, State, useFetch };

@@ -71,7 +71,7 @@ function useFetch({
   onBeforeUnmount(() => {
     resetInterval();
   });
-  return [state, useFetch2, resetInterval, interval.value];
+  return [state, useFetch2, resetInterval, interval];
 }
 export {
   RequestStatus,

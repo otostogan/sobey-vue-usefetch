@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-import { reactive, UnwrapRef, ref, onBeforeUnmount } from "vue";
+import { reactive, UnwrapRef, ref, onBeforeUnmount, Ref } from "vue";
 
 export enum RequestStatus {
 	INIT = "init",
@@ -28,7 +28,7 @@ export function useFetch<T, A = void>({
 	State<T>,
 	(args?: A, refetch?: number) => Promise<T>,
 	() => void,
-	number | null
+	Ref<number | null>
 ] {
 	const interval = ref<number | null>(null);
 
@@ -77,5 +77,5 @@ export function useFetch<T, A = void>({
 		resetInterval();
 	});
 
-	return [state as State<T>, useFetch, resetInterval, interval.value];
+	return [state as State<T>, useFetch, resetInterval, interval];
 }
