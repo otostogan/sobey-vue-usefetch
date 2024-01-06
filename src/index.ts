@@ -52,6 +52,7 @@ export function useFetch<T, A = void>({
 					console.error(error);
 					state.error = error;
 					state.status = RequestStatus.REJECTED;
+					resetInterval();
 					throw error;
 				});
 		};

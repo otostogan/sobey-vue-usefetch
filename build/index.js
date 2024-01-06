@@ -74,6 +74,7 @@ function useFetch({
         console.error(error);
         state.error = error;
         state.status = "rejected" /* REJECTED */;
+        resetInterval();
         throw error;
       });
     };
